@@ -2,13 +2,19 @@
     color: #6c757d;
 }
 
-nav{
-    text-align: center;
-}
 ul{
     background-color: white;
     margin-bottom: 0px;
 }
+
+.nav-header{
+    text-align: center;
+}
+
+.nav-body{
+    text-align: left;
+}
+
 .Name{
     padding: 20px;
 }
@@ -21,14 +27,15 @@ ul{
 }
 
 .content{
-    height: 100%;
+    height:100%;
     padding: 0px;
     width: 100%;
     margin: 0px;
 }
 
 .menu-item{
-    padding:20px
+    padding:20px;
+    vertical-align: middle;
 }
 
 .menu-item:hover{

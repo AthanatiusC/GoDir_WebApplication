@@ -16,12 +16,14 @@ export class AuthService implements CanActivate {
   constructor(private http:HttpClient,private router:Router,private snackBar: MatSnackBar) { }
 
   canActivate(): boolean {
-    if (sessionStorage.getItem('key') != ""){
+    if (sessionStorage.getItem('key') != null){
       return true
+    } else {
+      window.location.href="/Login"
     }
-    if (this.isAuthenticated == true) {
-      return true
-    }
+    // else if (this.isAuthenticated == true) {
+    //   return true
+    // }
     return false
   }
 

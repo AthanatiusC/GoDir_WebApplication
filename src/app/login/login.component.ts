@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit,OnDestroy{
         this.isloading = false
         this.snackBar.open("Login Success","Dismiss",{duration:2000})
         sessionStorage.setItem("key", res.Data.key)
+        sessionStorage.setItem("id", res.Data.Id)
+        sessionStorage.setItem("path", res.Data.RootPath)
       } else {
         this.isloading = false
         this.snackBar.open("Wrong Username or Password","Dismiss",{duration:2000})

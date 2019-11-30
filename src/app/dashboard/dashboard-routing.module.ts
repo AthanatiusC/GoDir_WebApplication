@@ -9,7 +9,7 @@ import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
     {
-        path: "Dashboard", component: DashboardComponent, canActivate: [AuthService], children: [
+        path: "Dashboard"   , component: DashboardComponent, canActivate: [AuthService], children: [
             { path: "FileManager", component: FileManagerComponent, canActivate:[AuthService]},
             { path: "Settings", component: SettingsComponent, canActivate:[AuthService]},
             { path: "Profile", component:ProfileComponent, canActivate:[AuthService]},

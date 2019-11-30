@@ -6,7 +6,7 @@
             </div>
             <div class="nav-body">
                 <a *ngFor="let menu of Menulist" [routerLink]="[menu.path]" class="link text-muted" routerLinkActive="router-link-active">
-                    <li class="menu-item"><i class="material-icons">{{menu.icon}}</i> {{menu.name}}</li>
+                    <li class="menu-item"><i style="margin:0px 20px 0px 20px;vertical-align: middle;" class="material-icons">{{menu.icon}}</i> {{menu.name}}</li>
                 </a>
             </div>
         </ul>

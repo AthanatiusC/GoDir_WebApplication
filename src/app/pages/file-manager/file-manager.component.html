@@ -1,22 +1,37 @@
 <div class="FileManager text-left">
     <div class="FMHeader">
-        <h1> <i class="material-icons">folder</i> FileManager</h1>
+        <h1> <i class="large material-icons">folder</i> FileManager</h1>
     </div>
-    <div class="border-bottom"></div>
-    <nav aria-label="breadcrumb">
+    <!-- <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Library</a></li>
             <li class="breadcrumb-item active" aria-current="page">Data</li>
         </ol>
-    </nav>
-    <div class="FMBody">
+    </nav> -->
+    <div class="input-group mb-3" style="padding:20px">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Current Path</span>
+        </div>
+        <input type="text" ([ngModel])="CurrentPath" (keyup.enter)="test" class="form-control" value="{{CurrentPath}}" placeholder="Enter Path">
+    </div>
+    <button (click)="GoBack()" class="btn btn-secondary" style="margin: 20px;">
+        <i style="vertical-align: middle;" class="material-icons">keyboard_backspace</i>
+        Back
+    </button>
+    <div class="FMBody border-top">
         <ul class="list-group list-group-flush" >
-            <li class="list-group-item" *ngFor="let dir of Directories">
-                <i class="material-icons" *ngIf="dir.Type == 'Folder'">folder</i>
-                <i class="material-icons" *ngIf="dir.Type != 'Folder'">insert_drive_file</i>
-                <span> {{dir.Name}}</span>
-            </li>
+            <div *ngIf="Directories == null" align="center">
+                <i class="material-icons" style="vertical-align: middle;font-size: 50pt;">sentiment_very_dissatisfied</i>
+                <h5>This Folder is Empty!</h5>
+            </div>
+            <div *ngFor="let dir of Directories">
+                <li class="list-group-item folder" (click)="GetDirectory(dir.Name,dir.Type)">
+                    <i class="material-icons" *ngIf="dir.Type != 'Folder'">insert_drive_file</i>
+                    <i class="material-icons" *ngIf="dir.Type == 'Folder'">folder</i>
+                    <span> {{dir.Name}}</span>
+                </li>
+            </div>
         </ul>
     </div>
 </div>

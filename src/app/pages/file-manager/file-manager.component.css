@@ -6,7 +6,7 @@
 .FMBody{
     /* margin: 20px; */
     overflow: auto;
-    height: 400px;
+    height: 425px;
 }
 
 .FMHeader{
@@ -15,4 +15,8 @@
 
 ul{
     margin-bottom: 20px;
+}
+
+.folder:hover{
+    background-color: #dee2e6;
 }
