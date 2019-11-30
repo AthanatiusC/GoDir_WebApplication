@@ -1,0 +1,24 @@
+<div class="dashboard row">
+    <nav class="col-sm" style="padding:0px">
+        <ul class="sidebar border-right">
+            <div class="nav-header">
+                <h1 class="Name text-muted">{{Name}}</h1>
+            </div>
+            <div class="nav-body">
+                <a *ngFor="let menu of Menulist" [routerLink]="[menu.path]" class="link text-muted" routerLinkActive="router-link-active">
+                    <li class="menu-item"><i class="material-icons">{{menu.icon}}</i> {{menu.name}}</li>
+                </a>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="content col-sm-10" >
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="loader-container" *ngIf="isloading">
+        <div class="loader">
+            <div class="lds-ripple"><div></div><div></div></div>
+        </div>
+    </div>
+</div>
