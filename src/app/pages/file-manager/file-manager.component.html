@@ -27,8 +27,8 @@
             </div>
             <div *ngFor="let dir of Directories">
                 <li class="list-group-item folder" (click)="GetDirectory(dir.Name,dir.Type)">
-                    <i class="material-icons" *ngIf="dir.Type != 'Folder'">insert_drive_file</i>
-                    <i class="material-icons" *ngIf="dir.Type == 'Folder'">folder</i>
+                    <i class="material-icons" *ngIf="dir.Type != 'Folder'" style="vertical-align: middle;">insert_drive_file</i>
+                    <i class="material-icons" *ngIf="dir.Type == 'Folder'" style="vertical-align: middle;">folder</i>
                     <span> {{dir.Name}}</span>
                 </li>
             </div>

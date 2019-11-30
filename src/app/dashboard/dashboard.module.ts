@@ -6,11 +6,9 @@ import { ProfileComponent } from '../pages/profile/profile.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MatBottomSheetModule } from '@angular/material';
-import { ConfirmLogoutComponent } from '../pages/confirm-logout/confirm-logout.component';
 
 @NgModule({
   declarations: [
-    ConfirmLogoutComponent,
     FileManagerComponent,
     SettingsComponent,
     ProfileComponent,
