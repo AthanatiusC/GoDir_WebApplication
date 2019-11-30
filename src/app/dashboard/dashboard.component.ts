@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FileManagerService } from '../file-manager.service';
-import { Directory } from '../directory';
-import { Payload } from '../payload';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,6 +30,7 @@ export class DashboardComponent implements OnInit {
 
   LogOut() {
     this.auth.LogOut()
+    document.getElementById("close").click()
     this.route.navigate(["Login"])
   }
 }

@@ -13,7 +13,8 @@ const routes: Routes = [
             { path: "FileManager", component: FileManagerComponent, canActivate:[AuthService]},
             { path: "Settings", component: SettingsComponent, canActivate:[AuthService]},
             { path: "Profile", component:ProfileComponent, canActivate:[AuthService]},
-            { path: "Home", component:HomeComponent, canActivate:[AuthService]}
+            { path: "Home", component:HomeComponent, canActivate:[AuthService]},
+            { path: "", component:HomeComponent, canActivate:[AuthService]}
     ]},
 ]
 

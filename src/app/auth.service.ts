@@ -19,7 +19,7 @@ export class AuthService implements CanActivate {
     if (sessionStorage.getItem('key') != null){
       return true
     } else {
-      window.location.href="/Login"
+      window.location.href=""
     }
     // else if (this.isAuthenticated == true) {
     //   return true

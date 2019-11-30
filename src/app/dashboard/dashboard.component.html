@@ -2,11 +2,14 @@
     <nav class="col-sm" style="padding:0px">
         <ul class="sidebar border-right">
             <div class="nav-header">
-                <h1 class="Name text-muted">{{Name}}</h1>
+                <h1 class="Name">{{Name}}</h1>
             </div>
             <div class="nav-body">
-                <a *ngFor="let menu of Menulist" [routerLink]="[menu.path]" class="link text-muted" routerLinkActive="router-link-active">
+                <a *ngFor="let menu of Menulist" [routerLink]="[menu.path]" routerLinkActive="router-link-active">
                     <li class="menu-item"><i style="margin:0px 20px 0px 20px;vertical-align: middle;" class="material-icons">{{menu.icon}}</i> {{menu.name}}</li>
+                </a>
+                <a data-toggle="modal" data-target="#exampleModalLong">
+                    <li class="menu-item"><i style="margin:0px 20px 0px 20px;vertical-align: middle;" class="material-icons">power_off</i> Log Out</li>
                 </a>
             </div>
         </ul>
@@ -20,5 +23,25 @@
         <div class="loader">
             <div class="lds-ripple"><div></div><div></div></div>
         </div>
+    </div>      
+
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Attention!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to Log Out?
+        </div>
+        <div class="modal-footer">
+            <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal" style="color: white;">Close</button>
+            <button type="button" class="btn btn-primary" (click)="LogOut()" style="color: white;">Yes</button>
+        </div>
+        </div>
+    </div>
     </div>
 </div>

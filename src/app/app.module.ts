@@ -8,15 +8,13 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SnackBarComponent } from './snack-bar/snack-bar.component';
-import { MatSnackBarModule } from '@angular/material';
+import { MatSnackBarModule, MatDialog } from '@angular/material';
 import { DashboardModule } from './dashboard/dashboard.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
-    SnackBarComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -25,8 +23,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-  MatSnackBarModule,
-  DashboardModule
+    MatSnackBarModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

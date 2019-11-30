@@ -36,14 +36,11 @@ ul{
 .menu-item{
     padding:20px;
     vertical-align: middle;
+    text-decoration: none;
 }
 
 .menu-item:hover{
     background-color: #dee2e6;
-}
-
-.link{
-    text-decoration: none;
 }
 
 .dashboard{
