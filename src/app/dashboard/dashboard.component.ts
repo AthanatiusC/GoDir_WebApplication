@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
     this.Name = "TEST"
     this.Menulist = [
       {"name":"Home","path":"/Dashboard/Home","icon":"dashboard"},
+      {"name":"Data Center","path":"/Dashboard/DataCenter","icon":"center_focus_strong"},
       {"name":"File Manager","path":"FileManager","icon":"folder_shared"},
       {"name":"Profile","path":"Profile","icon":"person_pin"},
       {"name":"Setting","path":"Settings","icon":"settings_applications"},

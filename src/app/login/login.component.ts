@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit,OnDestroy{
   constructor(private cookie:CookieService,private auth: AuthService,private router: Router,private snackBar: MatSnackBar) {}
 
   ngOnInit() {
+    if (this.cookie.check("id")) {
+      this.router.navigate(['/Dashboard'])
+    }
   }
   ngOnDestroy() {
     // this.snackBar.dismiss()
@@ -41,7 +44,7 @@ export class LoginComponent implements OnInit,OnDestroy{
         this.auth.OnSuccess()
         this.router.navigate(["Dashboard"])
         this.isloading = false
-        this.snackBar.open("Login Success","Dismiss",{duration:2000})
+        this.snackBar.open("Login Success, Welcome back "+this.username.value+"!","Dismiss",{duration:4000})
         this.cookie.set("key", res.Data.key,7,'/',null,false,"Strict")
         this.cookie.set("id", res.Data.Id,7,'/',null,false,"Strict")
         this.cookie.set("path", res.Data.RootPath,7,'/',null,false,"Strict")

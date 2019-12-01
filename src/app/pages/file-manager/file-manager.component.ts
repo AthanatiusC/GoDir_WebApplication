@@ -12,20 +12,21 @@ import { CookieService } from 'ngx-cookie-service';
 export class FileManagerComponent implements OnInit {
   CurrentPath:string
   Directories: Directory[]
-  FolderName:string
+  FolderName: string
+  isloading:boolean=false
   constructor(private cookie:CookieService,private FM:FileManagerService) { }
 
   ngOnInit() {
+    this.isloading = true
     this.CurrentPath = this.cookie.get("path")
     this.GetDirectoryList()
   }
 
   async GetDirectoryList() {
-    // console.log(this.CurrentPath)
-    await this.FM.GetDirectory(this.CurrentPath).subscribe((res:Payload) => {
-      // console.log(res.Message)
+    await this.FM.GetDirectory(this.CurrentPath).toPromise().then((res:Payload) => {
       this.Directories = res.Data
     })
+    this.isloading = false
   }
 
   GetDirectory(name: string, type: string) {

@@ -1,0 +1,22 @@
+.DataCenter{
+    background-color: white;
+}
+
+.DCBody{
+    background-color: white;
+    /* margin: 20px; */
+    overflow: auto;
+    height:calc(100% - 87px);
+}
+
+.user{
+    padding: 20px;
+}
+
+.DCHeader{
+    padding:20px;
+}
+
+.table{
+    text-align: center;
+}

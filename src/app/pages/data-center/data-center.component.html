@@ -1,0 +1,40 @@
+<div class="DataCenter text-left">
+
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+    <div class="DCHeader">
+        <h1> <i class="large material-icons">center_focus_strong</i> Central Data Management</h1>
+    </div>
+</div>
+<mat-progress-bar *ngIf="isloading" mode="indeterminate"></mat-progress-bar>
+<div class="DCBody border-top">
+    <div class="wrapper">
+        <div class="user border-bottom">
+            <h3 style="font-weight: bold;">User List</h3>
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Root Access</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of Users">
+                        <td scope="row">{{user.Id}}</td>
+                        <td>{{user.Name}}</td>
+                        <td>{{user.Username}}</td>
+                        <td>{{user.Email}}</td>
+                        <td>{{user.RootPath}}</td>
+                        <td><button class="btn btn-primary">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

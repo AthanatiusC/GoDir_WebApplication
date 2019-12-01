@@ -1,22 +1,14 @@
 <div class="FileManager text-left">
     <div class="FMHeader">
-        <h1> <i class="large material-icons">folder</i> FileManager</h1>
+        <h1> <i class="large material-icons">folder</i> Server File Manager</h1>
     </div>
-    <!-- <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
-        </ol>
-    </nav> -->
     <div class="input-group mb-3" style="padding:20px">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Current Path</span>
         </div>
         <input type="text" (keyup.enter)="test" class="form-control" value="{{CurrentPath}}" placeholder="Enter Path">
     </div>
-
-
+    <mat-progress-bar *ngIf="isloading" mode="indeterminate"></mat-progress-bar>
     <div class="FMmenu border-top">
         <button (click)="GoBack()" class="btn btn-secondary" style="margin: 20px 10px 20px 10px;">
             <i style="vertical-align: middle;" class="material-icons">arrow_back_ios</i>

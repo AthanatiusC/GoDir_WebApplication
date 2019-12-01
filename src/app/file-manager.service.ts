@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Directory } from './directory';
 import { Payload } from './payload';
+import { environment } from 'src/environments/environment';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileManagerService {
-  private uri: string = "http://localhost:9000"
   private Directories: Observable<Directory[]>
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private cookie:CookieService) { }
 
   GetDirectory(path:string){
-    return this.http.post(this.uri + "/directory", JSON.stringify({ "path": path }))
+    const Header = new HttpHeaders({
+      'auth_key': this.cookie.get("key"),
+      'user_id': this.cookie.get("id")
+    });
+    return this.http.post(environment.uri + "/directory", JSON.stringify({ "path": path }),{headers:Header})
   }
 
 }

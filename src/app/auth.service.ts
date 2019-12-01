@@ -6,18 +6,18 @@ import { Users } from './users';
 import { MatSnackBar } from '@angular/material';
 import { timeout } from 'rxjs/operators'
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements CanActivate {
   public isAuthenticated: boolean = false
-  private uri:string = "http://localhost:9000"
 
   constructor(private cookie:CookieService,private http:HttpClient,private router:Router,private snackBar: MatSnackBar) { }
 
   canActivate(): boolean {
-    if (this.cookie.get('key') != null){
+    if (this.cookie.check('key')){
       return true
     } else {
       this.router.navigate(['/Login'])
@@ -30,7 +30,7 @@ export class AuthService implements CanActivate {
   }
 
   Authenticate(username:string,password:string):Observable<Users>{
-    return this.http.post<Users>(this.uri+"/auth", JSON.stringify({ "username": username, "password": password }))
+    return this.http.post<Users>(environment.uri+"/auth", JSON.stringify({ "username": username, "password": password }))
   }
 
   LogOut() {

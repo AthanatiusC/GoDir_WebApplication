@@ -6,11 +6,13 @@ import { AuthService } from '../auth.service';
 import { SettingsComponent } from '../pages/settings/settings.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
 import { DashboardComponent } from './dashboard.component';
+import { DataCenterComponent } from '../pages/data-center/data-center.component';
 
 const routes: Routes = [
     {
         path: "Dashboard"   , component: DashboardComponent, canActivate: [AuthService], children: [
             { path: "FileManager", component: FileManagerComponent, canActivate:[AuthService]},
+            { path: "DataCenter", component: DataCenterComponent, canActivate:[AuthService]},
             { path: "Settings", component: SettingsComponent, canActivate:[AuthService]},
             { path: "Profile", component:ProfileComponent, canActivate:[AuthService]},
             { path: "Home", component:HomeComponent, canActivate:[AuthService]},

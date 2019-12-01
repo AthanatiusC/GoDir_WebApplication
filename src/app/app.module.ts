@@ -10,13 +10,15 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule, MatDialog } from '@angular/material';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { CookieService } from 'ngx-cookie-service'
+import { CookieService } from 'ngx-cookie-service';
+import { DataCenterComponent } from './pages/data-center/data-center.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    DataCenterComponent
   ],
   imports: [
     BrowserModule,
