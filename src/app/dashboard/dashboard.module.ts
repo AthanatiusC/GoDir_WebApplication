@@ -6,6 +6,7 @@ import { ProfileComponent } from '../pages/profile/profile.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { MatBottomSheetModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MatBottomSheetModule } from '@angular/material';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

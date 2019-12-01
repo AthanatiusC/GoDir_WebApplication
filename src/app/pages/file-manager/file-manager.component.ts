@@ -12,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class FileManagerComponent implements OnInit {
   CurrentPath:string
   Directories: Directory[]
+  FolderName:string
   constructor(private cookie:CookieService,private FM:FileManagerService) { }
 
   ngOnInit() {
@@ -38,7 +39,6 @@ export class FileManagerComponent implements OnInit {
       } else {
         cleanpath = dirtypath
       }
-      console.log(cleanpath)
       this.CurrentPath = cleanpath
       this.cookie.set("path",this.CurrentPath)
       this.GetDirectoryList()

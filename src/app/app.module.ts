@@ -26,7 +26,8 @@ import { CookieService } from 'ngx-cookie-service'
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    DashboardModule
+    DashboardModule,
+    FormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
