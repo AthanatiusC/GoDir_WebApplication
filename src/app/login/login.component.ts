@@ -4,6 +4,7 @@ import { Users } from '../users';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, CanActivate } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit,OnDestroy{
   username = new FormControl
   password = new FormControl
 
-  constructor(private auth: AuthService,private router: Router,private snackBar: MatSnackBar) {}
+  constructor(private cookie:CookieService,private auth: AuthService,private router: Router,private snackBar: MatSnackBar) {}
 
   ngOnInit() {
   }
@@ -41,9 +42,9 @@ export class LoginComponent implements OnInit,OnDestroy{
         this.router.navigate(["Dashboard"])
         this.isloading = false
         this.snackBar.open("Login Success","Dismiss",{duration:2000})
-        sessionStorage.setItem("key", res.Data.key)
-        sessionStorage.setItem("id", res.Data.Id)
-        sessionStorage.setItem("path", res.Data.RootPath)
+        this.cookie.set("key", res.Data.key,7,'/',null,false,"Strict")
+        this.cookie.set("id", res.Data.Id,7,'/',null,false,"Strict")
+        this.cookie.set("path", res.Data.RootPath,7,'/',null,false,"Strict")
       } else {
         this.isloading = false
         this.snackBar.open("Wrong Username or Password","Dismiss",{duration:2000})

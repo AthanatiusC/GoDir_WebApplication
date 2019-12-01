@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Directory } from 'src/app/directory';
 import { Payload } from 'src/app/payload';
 import { FileManagerService } from 'src/app/file-manager.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-file-manager',
@@ -10,11 +11,11 @@ import { FileManagerService } from 'src/app/file-manager.service';
 })
 export class FileManagerComponent implements OnInit {
   CurrentPath:string
-  Directories:Directory[]
-  constructor(private FM:FileManagerService) { }
+  Directories: Directory[]
+  constructor(private cookie:CookieService,private FM:FileManagerService) { }
 
   ngOnInit() {
-    this.CurrentPath = sessionStorage.getItem("path")
+    this.CurrentPath = this.cookie.get("path")
     this.GetDirectoryList()
   }
 
@@ -39,7 +40,7 @@ export class FileManagerComponent implements OnInit {
       }
       console.log(cleanpath)
       this.CurrentPath = cleanpath
-      sessionStorage.setItem("path",this.CurrentPath)
+      this.cookie.set("path",this.CurrentPath)
       this.GetDirectoryList()
     }
   }
@@ -53,7 +54,11 @@ export class FileManagerComponent implements OnInit {
     } else {
       this.CurrentPath = path
     }
-    sessionStorage.setItem("path",this.CurrentPath)
+    this.cookie.set("path",this.CurrentPath)
     this.GetDirectoryList()
+  }
+
+  CreateFolder() {
+    
   }
 }

@@ -10,6 +10,8 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule, MatDialog } from '@angular/material';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { CookieService } from 'ngx-cookie-service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MatSnackBarModule,
     DashboardModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

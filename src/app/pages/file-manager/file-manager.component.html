@@ -13,25 +13,92 @@
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Current Path</span>
         </div>
-        <input type="text" ([ngModel])="CurrentPath" (keyup.enter)="test" class="form-control" value="{{CurrentPath}}" placeholder="Enter Path">
+        <input type="text" (keyup.enter)="test" class="form-control" value="{{CurrentPath}}" placeholder="Enter Path">
     </div>
-    <button (click)="GoBack()" class="btn btn-secondary" style="margin: 20px;">
-        <i style="vertical-align: middle;" class="material-icons">keyboard_backspace</i>
-        Back
-    </button>
+
+
+    <div class="FMmenu border-top">
+        <button (click)="GoBack()" class="btn btn-secondary" style="margin: 20px 10px 20px 10px;">
+            <i style="vertical-align: middle;" class="material-icons">arrow_back_ios</i>
+            Back
+        </button>
+        <button data-toggle="modal" data-target="#CreateFolderModal" class="btn btn-primary" style="margin: 20px 10px 20px 10px">
+            <i style="vertical-align: middle;" class="material-icons">create_new_folder</i>
+            Create Folder
+        </button>
+        <button (click)="CreateFolder()" class="btn btn-warning" style="margin: 20px 10px 20px 10px">
+            <i style="vertical-align: middle;" class="material-icons">edit</i>
+            Rename Folder
+        </button>
+    
+    
     <div class="FMBody border-top">
         <ul class="list-group list-group-flush" >
             <div *ngIf="Directories == null" align="center" style="margin-top: 150px;">
                 <i class="material-icons" style="vertical-align: middle;font-size: 50pt;">sentiment_very_dissatisfied</i>
-                <h5>This Folder is Empty!</h5>
+                <h5>Nothing to show</h5>
+                <button (click)="GoBack()" class="btn btn-secondary" style="margin: 20px 10px 20px 10px;">
+                    <i style="vertical-align: middle;" class="material-icons">arrow_back_ios</i>
+                    Go Back
+                </button>
             </div>
             <div *ngFor="let dir of Directories">
-                <li class="list-group-item folder" (click)="GetDirectory(dir.Name,dir.Type)">
-                    <i class="material-icons" *ngIf="dir.Type != 'Folder'" style="vertical-align: middle;">insert_drive_file</i>
-                    <i class="material-icons" *ngIf="dir.Type == 'Folder'" style="vertical-align: middle;">folder</i>
-                    <span> {{dir.Name}}</span>
+                <li class="list-group-item folder" (dblclick)="GetDirectory(dir.Name,dir.Type)">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <span *ngIf="dir.Type != 'Folder'" style="vertical-align: middle;" class="fiv-viv fiv-icon-{{dir.Type}}" style="font-size: 15pt;"></span>
+                            <!-- <i class="material-icons" *ngIf="dir.Type != 'Folder'" style="vertical-align: middle;">insert_drive_file</i> -->
+                            <i class="material-icons" *ngIf="dir.Type == 'Folder'" style="vertical-align: middle;">folder</i>
+                            <span> {{dir.Name}}</span>
+                        </div>
+                        <div class="col-sm-2">
+                            <div *ngIf="dir.Type == 'Folder'" >
+                                <span>Type:</span>
+                                <span> {{dir.Type}}</span>
+                            </div>
+                            <div *ngIf="dir.Type != 'Folder'" >
+                                <span>Type:</span>
+                                <span> .{{dir.Type}}</span>
+                                <br>
+                                <span>Size:</span>
+                                <span> {{dir.Size}} KB</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <span>Last Modified:</span>
+                            <span> {{dir.LastModified}}</span>
+                        </div>
+                    </div>
                 </li>
             </div>
         </ul>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="CreateFolderModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Folder</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Folder Name:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" (click)="CreateFolder()">Create Folder</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

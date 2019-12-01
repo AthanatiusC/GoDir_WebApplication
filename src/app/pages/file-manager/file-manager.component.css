@@ -1,12 +1,11 @@
 .FileManager{
     background-color: white;
-    border-radius: 4px;
 }
 
 .FMBody{
     /* margin: 20px; */
     overflow: auto;
-    height: 425px;
+    height: calc(100vh - 278px);
 }
 
 .FMHeader{

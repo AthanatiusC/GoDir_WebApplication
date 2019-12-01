@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 
 const routes: Routes = [
   {path: "Login", component: LoginComponent},
-  {path: "", redirectTo:"/Dashboard",pathMatch:"full"},
+  {path: "", redirectTo:"/Login",pathMatch:"full"},
 ];
 
 @NgModule({
