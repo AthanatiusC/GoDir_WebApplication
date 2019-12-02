@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  uri:"http://192.168.43.190:9000/v1"
+  uri:"http://localhost:9000/v1"
 };
 
 /*

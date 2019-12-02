@@ -76,8 +76,24 @@ export class FileManagerComponent implements OnInit {
     this.GetDirectoryList()
   }
 
-  CreateFolder() {
-    
+  async CreateFolder() {
+    if (this.CurrentPath != null) {
+      let splittedpath = this.CurrentPath.split("/")
+      splittedpath.push(name)
+      let dirtypath = splittedpath.join("/")
+      let cleanpath:string
+      if (dirtypath.includes("//")) {
+        cleanpath = dirtypath.replace("//","/")
+      } else {
+        cleanpath = dirtypath
+      }
+      let finalpath = cleanpath+ this.FolderName
+      await this.FM.CreateDirectory(finalpath).toPromise().then((res: Payload) => {
+        console.log(this.FolderName + " Successfully Created!")
+        document.getElementById("close").click()
+        this.GetDirectoryList()
+      })
+    }
   }
  
   selectFolder(event){
