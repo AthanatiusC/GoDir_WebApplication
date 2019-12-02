@@ -15,7 +15,7 @@ export class UsersService {
 
   GetAllUsers(){
     const headers = new HttpHeaders({
-      'auth_key': this.cookie.get("key"),
+      'Key': this.cookie.get("key"),
       'user_id': this.cookie.get("id")
     });
     return this.http.get<Payload>(environment.uri + "/users",{headers:headers})

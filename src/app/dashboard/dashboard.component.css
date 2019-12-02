@@ -2,6 +2,11 @@
     color: #6c757d;
 }
 
+body {
+  background-color: #b2bec3;
+  height: 100vh;
+}
+
 ul{
     background-color: white;
     margin-bottom: 0px;
@@ -105,3 +110,4 @@ ul{
     z-index: 99;
     opacity: 80%;
 }
+

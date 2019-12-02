@@ -1,3 +1,70 @@
 .root{
     height: 100%;
 }
+.FileManager{
+    background-color: white;
+}
+/* 
+.FMBody{
+    /* margin: 20px; */
+    /* overflow: auto; */
+    /* height: calc(100vh - 262px); */
+/* }
+
+
+ul{
+    margin-bottom: 20px;
+} */ 
+.FMHeader{
+    padding:20px;
+}
+
+.folder {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.folder:hover{
+    background-color: #dee2e6;
+    cursor:pointer;
+}
+
+.FileManager {
+    margin: 20px;
+    border-radius: 5px;
+    background: transparent;
+}
+
+.current-directory span{
+    font-size: 16px;
+    padding-left: 1rem;
+}
+
+.btn i {
+    font-size: 14px;
+}
+
+.card-shadow {
+    box-shadow: 10px 20px 30px rgba(0,0,0,.4);    
+}
+
+.folder-selected {
+    background-color: #D7EDF9;
+}
+
+.folder.folder-selected:hover {
+    background-color: #D7EDF9;
+}
+
+.table-y-auto {
+    overflow-y: scroll;
+}
+
+.card-vh {
+    height: 75vh;
+}
+
+.FMmenu {
+    overflow-y: auto;
+}
